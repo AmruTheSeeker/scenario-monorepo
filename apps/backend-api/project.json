@@ -1,7 +1,7 @@
 {
-  "name": "web",
+  "name": "backend-api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/web",
+  "sourceRoot": "apps/backend-api",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,11 +9,11 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/web"
+        "outputPath": "dist/apps/backend-api"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/web"
+          "outputPath": "apps/backend-api"
         },
         "production": {}
       }
@@ -22,17 +22,17 @@
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "web:build",
+        "buildTarget": "backend-api:build",
         "dev": true,
-        "port": 3000
+        "port": 8000
       },
       "configurations": {
         "development": {
-          "buildTarget": "web:build:development",
+          "buildTarget": "backend-api:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "web:build:production",
+          "buildTarget": "backend-api:build:production",
           "dev": false
         }
       }
@@ -40,14 +40,14 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "web:build:production"
+        "buildTarget": "backend-api:build:production"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/web/jest.config.ts"
+        "jestConfig": "apps/backend-api/jest.config.ts"
       }
     },
     "lint": {
