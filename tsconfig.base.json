@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@scenario-monorepo/db": ["libs/db/src/index.ts"],
       "@scenario-monorepo/uikit": ["libs/uikit/src/index.ts"]
     }
   },
