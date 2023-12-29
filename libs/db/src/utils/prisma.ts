@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
@@ -5,11 +6,11 @@ const prismaClientSingleton = () => {
 };
 
 declare global {
-  var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
+  let prisma: undefined | ReturnType<typeof prismaClientSingleton>;
 }
-
+//@ts-ignore
 const prisma = globalThis.prisma ?? prismaClientSingleton();
-
 export default prisma;
 
+//@ts-ignore
 if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma;

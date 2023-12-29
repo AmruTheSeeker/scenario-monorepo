@@ -3,7 +3,7 @@ interface ButtonProps {
 }
 
 function Button({ children }: ButtonProps) {
-  return <button style={{ backgroundColor: 'red' }}>{children}</button>;
+  return <button className="bg-indigo-500 text-white p-4">{children}</button>;
 }
 
 export default Button 

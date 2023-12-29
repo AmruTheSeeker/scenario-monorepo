@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
+import { prisma } from '@scenario-monorepo/db'
 
 export async function GET(request: Request) {
-  return NextResponse.json({ message: 'Hello from backend API, Json style' });
+  const notes = await prisma.note.findMany()
+
+  return NextResponse.json(notes);
 }

@@ -1,1 +1,3 @@
-export * from './lib/db';
+import prisma from "./utils/prisma";
+
+export { prisma }
